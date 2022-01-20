@@ -137,63 +137,13 @@ The deployment state of the model can be seen as Healthy which indicates that th
 Once the model has been deployed, requests were sent to the model. For sending requests to the model the scoring uri as well as the primary key (if authentication is enabled) are required. A post request is created and the format of the data that is needed to be sent can be inferred from the swagger documentation:
 ![image](https://user-images.githubusercontent.com/59172649/150384069-16da5b19-37fd-4bd9-bc50-2802ad397877.png)
 The following code interacts with the deployed model by sending it 2 data points specified here and in the data.json file.
-import json
+![image](https://user-images.githubusercontent.com/59172649/150386627-e9ea43b0-3366-4faa-95a7-56d48b8246d3.png)
 
-#URL for the web service, should be similar to:
-#'http://8530a665-66f3-49c8-a953-b82a2d312917.eastus.azurecontainer.io/score'
-scoring_uri = aci_service.scoring_uri
-#If the service is authenticated, set the key or token
-
-#Two sets of data to score, so we get two results back
-data = {"data":
-        [
-          {
-            "age": 70.0,
-            "anaemia": 1,
-            "creatinine_phosphokinase": 4020,
-            "diabetes": 1,
-            "ejection_fraction": 32,
-            "high_blood_pressure": 1,
-            "platelets": 234558.23,
-            "serum_creatinine": 1.4,
-            "serum_sodium": 125,
-            "sex": 0,
-            "smoking": 1,
-            "time": 12
-          },
-          {
-            "age": 75.0,
-            "anaemia": 0,
-            "creatinine_phosphokinase": 4221,
-            "diabetes": 0,
-            "ejection_fraction": 22,
-            "high_blood_pressure": 0,
-            "platelets": 404567.23,
-            "serum_creatinine": 1.1,
-            "serum_sodium": 115,
-            "sex": 1,
-            "smoking": 0,
-            "time": 7
-          },
-      ]
-    }
-# Convert to JSON string
-input_data = json.dumps(data)
-with open("data.json", "w") as _f:
-    _f.write(input_data)
-
-#Set the content type
-headers = {'Content-Type': 'application/json'}
-#If authentication is enabled, set the authorization header
-
-#Make the request and display the response
-resp = requests.post(scoring_uri, input_data, headers=headers)
-print(resp.json())
 ** The result obtained from the deployed service is- **
 ![image](https://user-images.githubusercontent.com/59172649/150384220-ed67f2ed-4456-47b4-b083-1316236cc0a8.png)
 
  The requests being sent to the model can be monitored through the Application Insights URL (If Application Insights are enabled) along with failed requests, time taken per request as well as the availability of the deployed service.
- ![image](https://user-images.githubusercontent.com/59172649/148778479-ca1cea18-d75b-4485-8bfa-61e0939611df.png)
+![image](https://user-images.githubusercontent.com/59172649/150386107-0a2561a4-9206-4440-8389-1e650f56c122.png)
 
 
 # Screen Recording 
