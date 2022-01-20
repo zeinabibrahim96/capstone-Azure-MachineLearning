@@ -1,9 +1,4 @@
 # capstone-Azure-MachineLearning
-![image](https://user-images.githubusercontent.com/59172649/150382135-6d1116f4-a4cb-4c82-8278-3b59cccdeb45.png)
-![image](https://user-images.githubusercontent.com/59172649/150382210-bbd0d644-8bbe-42e0-866f-47de2dd55b0c.png)
-![image](https://user-images.githubusercontent.com/59172649/150382327-4559b921-1dfb-4034-8d5d-97ca04318db4.png)
-![image](https://user-images.githubusercontent.com/59172649/150382483-9c69de02-eaf1-49fc-a99d-76c8adb01189.png)
-
 
 # Overview 
 This project is part of the Udacity's Azure ML Nanodegree. In this project, we were asked to use a dataset of our choice to solve a Machine Learning problem using Azure ML. To do so, we need to train models using AutoML as well as Hyperdrive, then we choose the best model, deploy it and consume it.
