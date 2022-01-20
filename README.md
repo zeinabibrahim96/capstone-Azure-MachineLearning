@@ -111,12 +111,78 @@ The BanditPolicy is based on slack factor/slack amount and evaluation interval. 
   ![image](https://user-images.githubusercontent.com/59172649/148778274-d3616ba6-d53d-4b15-829a-f78c398ae5b0.png)
   ![image](https://user-images.githubusercontent.com/59172649/148778404-b6d6ae4c-b104-43a7-8466-c65327d1cc50.png)
 ![image](https://user-images.githubusercontent.com/59172649/148778421-aeef31b5-f0c5-41bb-b2a3-03ddbb2e1db5.png)
-![image](https://user-images.githubusercontent.com/59172649/148778479-ca1cea18-d75b-4485-8bfa-61e0939611df.png)
+
  # Model Deployment
  Based on the previous results, I chose the Voting Ensemble model as it has the best Accuracy out of the two. To successfully deploy the model, we must have an InferenceConfig and an ACI Config.
  ![image](https://user-images.githubusercontent.com/59172649/148778987-5784812d-8a60-4a80-8b5f-66f7665d9fc6.png)
 ![image](https://user-images.githubusercontent.com/59172649/148779122-b4098e1f-265c-49a1-8bc1-59c68a884402.png)
 ![image](https://user-images.githubusercontent.com/59172649/150383500-e8283a1d-304b-4b79-8e59-932a7b3251a0.png)
+Once the model is deployed the model endpoint can be accessed from the Endpoints sections in the Assets Tab
+![image](https://user-images.githubusercontent.com/59172649/150383743-ce8ea538-0321-4394-a507-122da73bb7b6.png)
+The deployment state of the model can be seen as Healthy which indicates that the service is healthy and the endpoint is available.
+![image](https://user-images.githubusercontent.com/59172649/150383801-99898218-6eb1-405e-95c7-0d54beb832a3.png)
+![image](https://user-images.githubusercontent.com/59172649/150383821-6eac954c-ca82-465c-8b6b-3a37ce9caeb4.png)
+Once the model has been deployed, requests were sent to the model. For sending requests to the model the scoring uri as well as the primary key (if authentication is enabled) are required. A post request is created and the format of the data that is needed to be sent can be inferred from the swagger documentation:
+![image](https://user-images.githubusercontent.com/59172649/150384069-16da5b19-37fd-4bd9-bc50-2802ad397877.png)
+The following code interacts with the deployed model by sending it 2 data points specified here and in the data.json file.
+import json
+
+# URL for the web service, should be similar to:
+# 'http://8530a665-66f3-49c8-a953-b82a2d312917.eastus.azurecontainer.io/score'
+scoring_uri = aci_service.scoring_uri
+# If the service is authenticated, set the key or token
+
+# Two sets of data to score, so we get two results back
+data = {"data":
+        [
+          {
+            "age": 70.0,
+            "anaemia": 1,
+            "creatinine_phosphokinase": 4020,
+            "diabetes": 1,
+            "ejection_fraction": 32,
+            "high_blood_pressure": 1,
+            "platelets": 234558.23,
+            "serum_creatinine": 1.4,
+            "serum_sodium": 125,
+            "sex": 0,
+            "smoking": 1,
+            "time": 12
+          },
+          {
+            "age": 75.0,
+            "anaemia": 0,
+            "creatinine_phosphokinase": 4221,
+            "diabetes": 0,
+            "ejection_fraction": 22,
+            "high_blood_pressure": 0,
+            "platelets": 404567.23,
+            "serum_creatinine": 1.1,
+            "serum_sodium": 115,
+            "sex": 1,
+            "smoking": 0,
+            "time": 7
+          },
+      ]
+    }
+# Convert to JSON string
+input_data = json.dumps(data)
+with open("data.json", "w") as _f:
+    _f.write(input_data)
+
+# Set the content type
+headers = {'Content-Type': 'application/json'}
+# If authentication is enabled, set the authorization header
+
+# Make the request and display the response
+resp = requests.post(scoring_uri, input_data, headers=headers)
+print(resp.json())
+**The result obtained from the deployed service is- **
+![image](https://user-images.githubusercontent.com/59172649/150384220-ed67f2ed-4456-47b4-b083-1316236cc0a8.png)
+
+ The requests being sent to the model can be monitored through the Application Insights URL (If Application Insights are enabled) along with failed requests, time taken per request as well as the availability of the deployed service.
+ ![image](https://user-images.githubusercontent.com/59172649/148778479-ca1cea18-d75b-4485-8bfa-61e0939611df.png)
+
 
 # Screen Recording 
 https://drive.google.com/file/d/1qs9fUU2j-yirxYUmWRnLeEUWEhO4FMfS/view?usp=sharing
