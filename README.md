@@ -51,6 +51,7 @@ The best model was a Voting Ensemble that has Accuracy=0.86619
 
 Ensemble learning improves machine learning results and predictive performance by combining multiple models as opposed to using single models. The Voting Ensemble model predicts based on the weighted average of predicted class probabilities.
 ![image](https://user-images.githubusercontent.com/59172649/148777728-9777f63f-4079-4512-9953-7659bab119a4.png)
+here the max accurancy is shown to be 0.86
 ![image](https://user-images.githubusercontent.com/59172649/148777760-0a90601e-1b6d-4e22-a78d-31e331c2217a.png)
 ![image](https://user-images.githubusercontent.com/59172649/148777803-b2b9eb89-3427-478f-869f-8dfc3624bb8c.png)
 # Hyperparameter Tuning
@@ -97,6 +98,7 @@ The BanditPolicy is based on slack factor/slack amount and evaluation interval. 
   -Regularization Strength (C)=100
   ![image](https://user-images.githubusercontent.com/59172649/148778274-d3616ba6-d53d-4b15-829a-f78c398ae5b0.png)
   ![image](https://user-images.githubusercontent.com/59172649/148778404-b6d6ae4c-b104-43a7-8466-c65327d1cc50.png)
+  here the accuracy is shown to be 0.788
 ![image](https://user-images.githubusercontent.com/59172649/148778421-aeef31b5-f0c5-41bb-b2a3-03ddbb2e1db5.png)
 
  # Model Deployment
@@ -120,7 +122,7 @@ aciconfig = AciWebservice.deploy_configuration(cpu_cores = 1,
 # Deploy the Model
 aci_service = Model.deploy(ws, aci_service_name, [model], inference_config, aciconfig)
 
-![image](https://user-images.githubusercontent.com/59172649/150383500-e8283a1d-304b-4b79-8e59-932a7b3251a0.png)
+
 Once the model is deployed the model endpoint can be accessed from the Endpoints sections in the Assets Tab
 ![image](https://user-images.githubusercontent.com/59172649/150383743-ce8ea538-0321-4394-a507-122da73bb7b6.png)
 The deployment state of the model can be seen as Healthy which indicates that the service is healthy and the endpoint is available.
