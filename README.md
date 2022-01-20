@@ -2,6 +2,23 @@
 # Overview 
 This project is part of the Udacity's Azure ML Nanodegree. In this project, we were asked to use a dataset of our choice to solve a Machine Learning problem using Azure ML. To do so, we need to train models using AutoML as well as Hyperdrive, then we choose the best model, deploy it and consume it.
 # DataSet
+Heart failure is a common event caused by CVDs and this dataset contains 12 features that can be used to predict mortality by heart failure.
+Column	Description
+age	Age of the patient
+anemia	Decrease of red blood cells or hemoglobin (boolean)
+creatinine_phosphokinase	Level of the CPK enzyme in the blood (mcg/L)
+diabetes	If the patient has diabetes (boolean)
+ejection_fraction	Percentage of blood leaving the heart at each contraction (percentage)
+high_blood_pressure	If the patient has hypertension (boolean)
+platelets	Platelets in the blood (kiloplatelets/mL)
+serum_creatinine	Level of serum creatinine in the blood (mg/dL)
+serum_sodium	Level of serum sodium in the blood (mEq/L)
+sex	Woman or man (binary)
+smoking	If the patient smokes or not (boolean)
+time	Follow-up period (days)
+DEATH_EVENT	If the patient deceased during the follow-up period (boolean)
+
+
 For this project, I used the Heart Failure dataset from Kaggle.
 ![image](https://user-images.githubusercontent.com/59172649/148777619-e38b9caf-ebcb-4b20-bdfc-1b38d49afc6b.png)
 
