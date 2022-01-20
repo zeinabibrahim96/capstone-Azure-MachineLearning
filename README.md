@@ -115,7 +115,7 @@ The BanditPolicy is based on slack factor/slack amount and evaluation interval. 
 
  # Model Deployment
   Based on the previous results, I chose the Voting Ensemble model as it has the best Accuracy out of the two. To successfully deploy the model, we must have an InferenceConfig and an ACI Config.
-# Register the Model
+ # Register the Model
 description = 'AutoML Model trained on heart failure data to predict if death event occurs or not'
 tags = None
 model = remote_run.register_model(model_name = model_name, description = description, tags = tags)
@@ -162,6 +162,7 @@ To improve this project in future, I can make the following improvements:
     -Use another dataset with more entries.
     -Train the model longer.
     -Choose another sampling policy.
+    
 
 
 
