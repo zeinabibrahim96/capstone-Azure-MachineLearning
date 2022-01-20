@@ -93,6 +93,8 @@ The BanditPolicy is based on slack factor/slack amount and evaluation interval. 
  Based on the previous results, I chose the Voting Ensemble model as it has the best Accuracy out of the two. To successfully deploy the model, we must have an InferenceConfig and an ACI Config.
  ![image](https://user-images.githubusercontent.com/59172649/148778987-5784812d-8a60-4a80-8b5f-66f7665d9fc6.png)
 ![image](https://user-images.githubusercontent.com/59172649/148779122-b4098e1f-265c-49a1-8bc1-59c68a884402.png)
+# Screen Recording 
+https://drive.google.com/file/d/1qs9fUU2j-yirxYUmWRnLeEUWEhO4FMfS/view?usp=sharing
 # Standout Suggestions 
 To improve this project in future, I can make the following improvements:
 
