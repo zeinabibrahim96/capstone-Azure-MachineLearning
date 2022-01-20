@@ -141,7 +141,7 @@ The following code interacts with the deployed model by sending it 2 data points
 
 
 # Screen Recording 
-https://drive.google.com/file/d/1qs9fUU2j-yirxYUmWRnLeEUWEhO4FMfS/view?usp=sharing
+https://drive.google.com/file/d/1k_O14RfATpI6D3f3eTMhOhdO7CxKWEmm/view?usp=sharing
 # future Improvments 
 To improve this project in future, I can make the following improvements:
 
