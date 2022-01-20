@@ -2,6 +2,12 @@
 
 # Overview 
 This project is part of the Udacity's Azure ML Nanodegree. In this project, we were asked to use a dataset of our choice to solve a Machine Learning problem using Azure ML. To do so, we need to train models using AutoML as well as Hyperdrive, then we choose the best model, deploy it and consume it.
+# HyperDrive Run Architecture
+![image](https://user-images.githubusercontent.com/59172649/150389362-49014188-3dd2-4e2c-bae6-23a4b2d6a42b.png)
+# AutoML Run Architecture
+![image](https://user-images.githubusercontent.com/59172649/150389432-9c48fce0-0323-4530-aea9-0a7f8b380e22.png)
+
+
 # DataSet
 Heart failure is a common event caused by CVDs and this dataset contains 12 features that can be used to predict mortality by heart failure.
 Column	Description
